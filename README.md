@@ -1,63 +1,34 @@
-# Jekyll Incorporated
-Modern Jekyll based blog. Great for companies, products or anything. See live at [blog.sendtoinc.com](http://blog.sendtoinc.com)
+dbyll
+=====
 
-## Installation & Usage
-    bundle install
-    jekyll serve --watch
+Open source stylish, minimalistic theme for jekyll.  
+Demo: http://dbtek.github.io/dbyll/
 
-_Note: Requires Ruby version 1.9.3 =>. For example use [rbenv](https://github.com/sstephenson/rbenv)_   
-    
-## Configuration
-Edit: _config.yml (general options), main.css (theme colors &amp; fonts)
+## New
+Dbyll for Ghost is now available. Get it [here](https://github.com/dbtek/dbyll-ghost) now.
 
-```
-jekyll-incorporated/
-├── _config.yml
-├── _assets/
-    ├── stylesheets/
-        ├── main.scss
-```
+### Features
+- Responsive layout.
+- Supports tags and categories.
+- Social profile and bio of author.
+- Bootstrap based.
+- Glyphicon and Font-Awesome Icons.
+- Pagination.
+- Syntax highlighting with pygments.
+- Disqus comments.
 
-_Note: when editing _config.yml, you need to restart jekyll to see the changes.__
 
-    
-## Publish to Github Pages
-1. Add your domain to _CNAME_
-2. Edit your repo address at _Rakefile_
-    
-Run rake task. **NOTE: It will deploy the generated site to _gh-pages_ branch overwriting it**    
-``` 
-rake site:publish
-```
+### Download
+* [Download dbyll](https://github.com/dbtek/dbyll/archive/master.zip)
 
-## Usage examples
+### Screenshots
 
-* Adroll Engineering http://tech.adroll.com/
-* Brace.io blog http://blog.brace.io/
-* Spark.io blog http://blog.spark.io/
-* Department of Better Technology http://blog.dobt.co/
+![dbyll-screenshot](	assets/media/dbyll-ss.png)
 
-## Authors
+### License
+- [MIT](http://opensource.org/licenses/MIT)
 
-Originally build for [sendtoinc.com](https://sendtoinc.com), your workspace for sharing and organizing knowledge
 
-**Karri Saarinen**
 
-+ [http://twitter.com/karrisaarinen](http://twitter.com/karrisaarinen)
-+ [http://github.com/ksaa](http://github.com/ksaa)
-
-**Jori Lallo**
-
-+ [http://twitter.com/jorilallo](http://twitter.com/jorilallo)
-+ [http://github.com/jorde](http://github.com/jorilallo)
-
-## Todo:
-
-+ Documentation
-+ Less config files
-+ Better deploy scripts
-
-## Copyright and license
-
-Copyright 2013 Kippt Inc. under [The MIT License ](LICENSE)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dbtek/dbyll/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
