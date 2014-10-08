@@ -12,18 +12,27 @@ defaults:
     scope:
       path: "" # empty string for all files
     values:
-      title: tosslab
+      title: TossLab Tech Blog
 
 description: Stylish Jekyll Theme
-author:
-  name: Toss Lab, Inc.
-  email: toss@tosslab.com
-  github: tosslab
-#  twitter: dbtek
-#  pinterest: asd123
-#  linkedin: asd123
-  bio: TossLab Tech Blog
-  email_md5: 726351295ec82e145928582f595aa3aa
+authors:
+  tosslab:
+    name: TossLab, Inc.
+    display_name: TossLab Dev Team
+    email: toss@tosslab.com
+    github: tosslab
+    bio: TossLab Tech Blog
+    gravatar: 726351295ec82e145928582f595aa3aa
+  mk:
+    name: Minki Choi
+    display_name: MK
+    gravatar: 117003ad8b8e2f8601a33e05197a26ab
+    email: mk@tosslab.com
+    bio: '기대가 큽니다'
+    web: https://www.jandi.com
+    twitter: akamk87
+    github: agileup
+
 
 rss_path: feed.xml
 categories_path: categories.html
