@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Configuration
+author: tosslab
 categories: [general, setup, demo]
 tags: [demo, dbyll, dbtek, setup]
 fullview: true
