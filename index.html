@@ -1,74 +1,63 @@
 ---
-layout: page
-tagline:
+layout: default
+category: home
+title: JANDI tech blog
+description: 안녕하세요. 잔디 서비스를 개발중인 토스랩 식구들의 블로그입니다.
 ---
 
-{% for post in paginator.posts %}
-
-<article class="home">
-
-  <span class="post-date">
-    {% assign d = post.date | date: "%d" | plus:'0' %}
-    {{ post.date | date: "%B" }}
-    {% case d %}
-    {% when 1 or 21 or 31 %}{{ d }}st,
-    {% when 2 or 22 %}{{ d }}nd,
-    {% when 3 or 23 %}{{ d }}rd,
-    {% else %}{{ d }}th,
-    {% endcase %}
-    {{ post.date | date: "%Y" }}
-  </span>
-
-  <h2>
-    <a href="{{ site.BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
-  </h2>
-
-  <div>
-    {% if post.fullview %}
-    {{ post.content }}
-    {% else %}
-    {% if post.shortinfo %}
-    {{ post.shortinfo }}
-    {% elsif post.description %}
-    {{ post.description }}
-    {% else %}
-    {{ post.excerpt }}
-    {% endif %}
-    {% endif %}
-  </div>
-
-</article>
-{% endfor %}
-<hr/>
-
-<ul class="pager">
-
-  {% if paginator.previous_page %}
-  <li class="previous">
-    {% if paginator.previous_page == 1 %}
-    <a href="{{ site.BASE_PATH }}/">&larr; Newer</a>
-    {% else %}
-    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.previous_page }}">&larr; Newer</a>
-    {% endif %}
-  </li>
-  {% else %}
-  <li class="previous disabled">
-    <a>&larr; Newer</a>
-  </li>
-  {% endif %}
-
-  <li>
-    <span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  </li>
-
-  {% if paginator.next_page %}
-  <li class="next">
-    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.next_page }}">Older &rarr;</a>
-  </li>
-  {% else %}
-  <li class="next disabled">
-    <a>Older &rarr;</a>
-  </li>
-  {% endif %}
-
-</ul>
+<section>
+    <ul class="posts">
+        {% for post in paginator.posts %}
+        <li class="post post__list">
+            {% assign author = site.authors[post.author] %}
+            <div class="post__list-profile">
+                {% include profile.md %}
+            </div>
+            <div class="post__list-meta">
+                <span class="post__list-meta__author">{{ author.nickname }}</span>
+                <span class="post__list-meta__date">{{ post.date | date: "%Y년 %m월 %d일" }}</span>
+            </div>
+            <h2 class="post__list-title">
+                <a class="post__list-title__link" href="{{ post.url }}">{{ post.title }}</a>
+            </h2>
+            <p class="post__list-meta__description">{{ post.description }}</p>
+            <ul class="cf tags">
+                <i class="fa fa-tags"></i>
+                {% for tag in post.tags %}
+                <li>
+                    <a href="/search/?tags={{ tag }}">{{ tag | downcase }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    <ul class="pagination clearfix">
+        {% if paginator.previous_page %}
+            {% if paginator.previous_page == 1 %}
+            <li><a href="/">Prev</a></li>
+            {% else %}
+            <li><a href="/page{{ paginator.previous_page }}">Prev</a></li>
+            {% endif %}
+        {% else %}
+        <li><span class="disabled">Prev</span></li>
+        {% endif %}
+        {% if paginator.page ==1 %}
+        <li><span class="active">1</span></li>
+        {% else %}
+        <li><a href="/">1</a></li>
+        {% endif %}
+        {% for count in (2..paginator.total_pages) %}
+            {% if count == paginator.page %}
+            <li><span class="active">{{ count }}</span></li>
+            {% else %}
+            <li><a href="/page{{ count }}">{{ count }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if paginator.next_page %}
+        <li><a href="/page{{ paginator.next_page }}">Next</a></li>
+        {% else %}
+        <li><span class="disabled">Next</span></li>
+        {% endif %}
+    </ul>
+</section>

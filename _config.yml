@@ -1,41 +1,63 @@
-# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+# https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+title: JANDI tech blog
+description: 안녕하세요. 잔디 서비스를 개발중인 토스랩 식구들의 블로그입니다.
 
-paginate: 3 # pagination based on number of posts
-paginate_path: "page:num"
-exclude: ["README.md"] # files to exclude
-highlighter: true
-markdown: kramdown
+# https://help.github.com/articles/using-jekyll-with-pages/#configuring-jekyll
+safe: true
+lsi: false
 
+highlighter: pygments
+permalink: pretty
+markdown: redcarpet
 
-defaults:
-  -
-    scope:
-      path: "" # empty string for all files
-    values:
-      title: TossLab Tech Blog
+redcarpet:
+    extensions:
+        - no_intra_emphasis
+        - fenced_code_blocks
+        - tables
+        - strikethrough
+        - superscript
+        - autolink
+        - hard_wrap
 
-description: Stylish Jekyll Theme
+gems:
+    - jemoji
+
+paginate: 10
+
 authors:
-  tosslab:
-    name: TossLab, Inc.
-    display_name: TossLab Dev Team
-    email: toss@tosslab.com
-    github: tosslab
-    bio: TossLab Tech Blog
-    gravatar: 726351295ec82e145928582f595aa3aa
-  mk:
-    name: Minki Choi
-    display_name: MK
-    gravatar: 117003ad8b8e2f8601a33e05197a26ab
-    email: mk@tosslab.com
-    bio: '기대가 큽니다'
-    web: https://www.jandi.com
-    twitter: akamk87
-    github: agileup
-
+    tosslab:
+        name: "TossLab, Inc."
+        nickname: "TossLab Dev Team"
+        email: "toss@tosslab.com"
+        github: "tosslab"
+        bio: "TossLab Tech Blog"
+    justin:
+        name: "최영근"
+        nickname: "Justin"
+        email: "justin@tosslab.com"
+        bio: "내가 바로 저스틴"
+    mk:
+        name: "최민기"
+        nickname: "MK"
+        gravatar: "117003ad8b8e2f8601a33e05197a26ab"
+        email: "mk@tosslab.com"
+        bio: "기대가 큽니다"
+        blog: "https://www.jandi.com"
+        twitter: "akamk87"
+        facebook: "agileup"
+        github: "agileup"
+    steve:
+        name: "정승욱"
+        nickname: "Steve"
 
 rss_path: feed.xml
 categories_path: categories.html
 tags_path: tags.html
 
-BASE_PATH:
+
+#paginate_path: "page:num"
+#exclude: ["README.md"] # files to exclude
+#markdown: kramdown
+
+#BASE_PATH:

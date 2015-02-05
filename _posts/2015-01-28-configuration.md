@@ -2,13 +2,12 @@
 layout: post
 title: Configuration
 author: tosslab
-categories: [general, setup, demo]
-tags: [demo, dbyll, dbtek, setup]
-fullview: true
+tags: [code, highlight]
 ---
 
 In your config file change these settings
 
+## YAML
 {% highlight yaml %}
 title: dbyll
 author:  
@@ -21,4 +20,11 @@ author:
   resume: asd123  
   bio: Your stylish,  minimalist theme!  
   email_md5: md5ofemail  
+{% endhighlight %}
+
+## Ruby
+{% highlight ruby %}
+def foo
+  puts 'foo'
+end
 {% endhighlight %}

@@ -1,5 +1,72 @@
----
-theme :
-  name : dbyll
----
-{% include default.html %}
+<!DOCTYPE html>
+<html lang="{% if page.language == nil %}en{% else %}{{ page.language }}{% endif %}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {{ page.title }}
+        {% if page.category == 'blog' and page.url != '/blog/index.html' %}
+        - JANDI Tech Blog
+        {% endif %}
+    </title>
+    {% if page.description %}
+    <meta name="description" content="{{page.description}}" />
+    {% endif %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ site.BASE_PATH }}/assets/ico/favicon.ico" />
+    <!-- <link rel="stylesheet" href="{{ site.BASE_PATH }}/assets/css/site.css" /> -->
+    <link rel="stylesheet" href="{{ site.BASE_PATH }}/assets/css/style.css" />
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/earlyaccess/nanumgothic.css'>
+    <link rel="stylesheet" href="{{ site.BASE_PATH }}/assets/css/font-awesome.min.css">
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for JANDI tech blog" href="/feed.xml" />
+    <!--<script src="{{ site.BASE_PATH }}/assets/js/instantclick.min.js" data-no-instant></script>
+    <script data-no-instant>InstantClick.init();</script>-->
+    {{ page.extra_head }}
+</head>
+<body>
+    <div class="top-bar"></div>
+    <header>
+        <a class="brand" href="/">
+            <img src="{{ site.BASE_PATH }}/assets/media/logo_jandi.png" class="brand-logo">
+        </a>
+        <nav>
+            <a class="{% if page.category == 'teams' %}selected{% endif %}" href="/teams/">소개</a>
+            <a class="{% if page.category == 'home' %}selected{% endif %}" href="/">블로그</a>
+            <a class="{% if page.category == 'archives' %}selected{% endif %}" href="/archives/">전체글</a>
+            <!-- <a class="{% if page.category == 'tags' %}selected{% endif %}" href="/tags/">태그</a> -->
+            <a class="{% if page.category == 'joinus' %}selected{% endif %}" href="/joinus/">채용정보</a>
+            <!-- <a href="/feed.xml" target="_blank">RSS</a> -->
+        </nav>
+        <div class="clear"></div>
+    </header>
+    <div class="header-bar"></div>
+    <div class="container">
+        <div class="site">
+            {{ content }}
+            <div class="separator"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <footer>
+        {% include footer.md %}
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!-- tag, category search -->
+    <script src="{{ site.BASE_PATH }}/assets/js/alexpearce.js"></script>
+    <!-- TOC Generator -->
+    <script src="{{ site.BASE_PATH }}/assets/js/jquery.toc-1.1.4.min.js"></script>
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '', '');
+        ga('send', 'pageview');
+    </script>
+    <!-- TOC Generator -->
+    <script>
+        $('#toc').toc({exclude: 'h1, h6', autoId: true});
+    </script>
+</body>
+</html>
