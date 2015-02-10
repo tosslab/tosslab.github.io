@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "AndroidAnnotation 과 MVP 패턴"
-author: Steve
-categories: [android]
+author: steve
 tags: [androidannotation, mvp, pattern]
 fullview: true
 ---
@@ -663,6 +662,9 @@ ButterKnife 와 같은 DI 라이브러리들은 Runtime 시 class 구조를 분�
 
 ### 참고 블로그
 
-[MVC, MVP, MVVM 의 이해 - 이항희(http://atconsole.com/2013/06/05/mvc-mvp-mvvm-%EC%9D%98-%EC%9D%B4%ED%95%B4/)](http://atconsole.com/2013/06/05/mvc-mvp-mvvm-%EC%9D%98-%EC%9D%B4%ED%95%B4/)
+[MVC, MVP, MVVM 의 이해 - 이항희][1]
 
-[MVC, MVP AND MVVM - tomyrhymond(https://tomyrhymond.wordpress.com/2011/09/16/mvc-mvp-and-mvvm/)](https://tomyrhymond.wordpress.com/2011/09/16/mvc-mvp-and-mvvm/)
+[MVC, MVP AND MVVM - tomyrhymond][2]
+
+[1]: http://atconsole.com/2013/06/05/mvc-mvp-mvvm-%EC%9D%98-%EC%9D%B4%ED%95%B4/
+[2]: https://tomyrhymond.wordpress.com/2011/09/16/mvc-mvp-and-mvvm/

@@ -2,7 +2,6 @@
 layout: post
 title: Hello World!
 author: tosslab
-categories: [general, setup, demo]
 tags: [demo, dbyll, dbtek, setup]
 fullview: true
 ---

@@ -17,13 +17,6 @@ body {
 	text-rendering: optimizeLegibility;
 	font-size: 100%;
 }
-/*h1, h2, h3 {
-	font-weight: 700;
-	color: #1C1C1C;
-	margin-top: 1.6em;
-	margin-bottom: 0.6em;
-	line-height: 1.2em;
-}*/
 h1 small {
 	font-weight: 400;
 	font-size: 50%;
@@ -64,6 +57,31 @@ a:hover, a:active {
 .container {
 	padding: 0 2em;
 }
+.profile {
+	border: 1px solid #eee;
+	width: 100%;
+	max-width: 100px;
+}
+.date {
+	color: #999;
+	text-transform: uppercase;
+}
+.nickname {
+	color: #666;
+}
+.icon-blog {
+	color: #31c08a;
+}
+.icon-github {
+	color: #333;
+}
+.icon-facebook {
+	color: #39579A;
+}
+.icon-twitter {
+	color: #50ABF1;
+}
+
 
 
 
@@ -221,7 +239,7 @@ ul.posts {
 .post__list-title a,
 .post__list-title a:visited {
 	text-decoration: none;
-	color: #1c1c1c;
+	color: #4a4a4a;
 }
 .post__list-title a:hover,
 .post__list-title a:active {
@@ -242,34 +260,70 @@ ul.posts {
 	font-weight: 700;
 }
 .post__list-meta__date {
-	color: #999;
+	
 }
 .post__list-meta__description {
 	line-height: 150%;
 	margin: 15px 0 10px;
 }
+
+
+
+
 .site {
 	text-align: justify;
 	max-width: 800px;
-	/*margin: 1em auto 1em;*/
 	margin: 60px auto 60px;
 	line-height: 1.5em;
 }
-.site .meta {
+
+article section {
+	padding: 1.5em 0;
+	/*border-bottom: 1px solid #eaeaea;*/
+}
+.article-header .date {
+	margin: 0 0 0.3em;
+}
+.article-header .title {
+	color: #0f0f0f;
+	font-size: 200%;
+	margin: 0.2em 0;
+}
+.article-author {
+	margin: 0;
+	min-height: 65px;
+}
+.article-author img {
+	width: 64px !important;
+	height: 64px;
+	margin: 0 20px 0 0;
 	display: inline-block;
-	color: #666;
-	border-top: 1px solid #ccc;*/
-	margin-top: 4px;
-	padding: 4px 8px;
-	margin-bottom: 2em;
+	float: left;
 }
-article h1 {
-	margin-bottom: 0;
-	line-height: 120%;
-	text-align: center;
+.article-author p {
+	display: block;
+	margin: 0 0 0 84px;
 }
-.convinced {
-	margin: 6em 0 4em 0;
+.article-author p.bio {
+	line-height: 130%;
+}
+.article-author span {
+	color: #1C1C1C;
+	margin: 0 3px;
+}
+.article-content {
+	font-weight: 400;
+}
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+	margin: 1.5rem 0;
+}
+
+.article-content p,
+.article-content ul,
+.article-content ol {
+	margin: 1rem 0;
 }
 
 /* Tag from https://alexpearce.me */
@@ -281,14 +335,14 @@ article h1 {
 }
 .tags i {
 	float: left;
-	margin: 4px 3px 0 0;
+	margin: 6px 3px 0 0;
 }
 .tags li {
 	float: left;
 	margin: 0;
 }
 .tags li a {
-	padding: 1px 5px 2px 5px;
+	padding: 1px 3px 2px 3px;
 	color: #bcc5c8;
 }
 .tags li a:hover {
@@ -429,15 +483,8 @@ div#toc1 ul,.mobile div#toc1 ul {
 	margin: .25em 0 1.5em 1em;
 }
 
-/* Custom */
-.profile {
-	border: 1px solid #eee;
-	width: 100%;
-	max-width: 100px;
-}
-.post {
-	/*line-height: 1.4em;*/
-}
+
+
 
 
 article {
@@ -445,16 +492,70 @@ article {
 	padding: 0 5% 0;
 }
 
-.article_body{
-	margin-top: 20px;
-	margin-bottom: 20px;
+
+/* Page - archives */
+.archives {
+	color: #1c1c1c;
+}
+.archives h3 {
+	margin: 3rem 0 1.5rem;
+	padding-bottom: 1px;
+	font-weight: 400;
+}
+.archives ul {
+	list-style-type: none;
+	/*padding-left: 0px;*/
+}
+.archives ul li {
+	margin: 1rem 0;
+	line-height: 150%;
+}
+.archives a,
+.archives a:visited {
+	text-decoration: none;
+	color: #4a4a4a;
+}
+.archives .meta {
+	font-size: 90%;
+	padding: 2px 0 3px;
+}
+.archives .name {
+	margin-left: 5px;
+	/*font-weight: 700;*/
 }
 
-.post-date {
-	text-transform: uppercase;
-	font-size: 14px;
-	letter-spacing: 3px;
+
+/* About teams */
+.teams h1 {
+	margin: 3rem 0 1.5rem;
 }
+.author {
+	position: relative;
+	margin: 1.5rem 0;
+	padding: 20px 10px 20px 170px;
+	min-height: 160px;
+}
+.author .profile {
+	position: absolute;
+	left: 0;
+	top: 0;
+	max-width: 150px;
+}
+.author-name {
+	font-size: 150%;
+}
+.author-bio {
+	margin: 10px 0;
+	font-size: 110%;
+}
+.author-outlink {
+	margin: 0 10px;
+	font-size: 130%;
+}
+.author-outlink i {
+	margin: 0 1px;
+}
+
 
 footer {
 	padding-top: 15px;

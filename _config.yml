@@ -25,31 +25,7 @@ gems:
 
 paginate: 10
 
-authors:
-    tosslab:
-        name: "TossLab, Inc."
-        nickname: "TossLab Dev Team"
-        email: "toss@tosslab.com"
-        github: "tosslab"
-        bio: "TossLab Tech Blog"
-    justin:
-        name: "최영근"
-        nickname: "Justin"
-        email: "justin@tosslab.com"
-        bio: "내가 바로 저스틴"
-    mk:
-        name: "최민기"
-        nickname: "MK"
-        gravatar: "117003ad8b8e2f8601a33e05197a26ab"
-        email: "mk@tosslab.com"
-        bio: "기대가 큽니다"
-        blog: "https://www.jandi.com"
-        twitter: "akamk87"
-        facebook: "agileup"
-        github: "agileup"
-    steve:
-        name: "정승욱"
-        nickname: "Steve"
+author_dir: author
 
 rss_path: feed.xml
 categories_path: categories.html

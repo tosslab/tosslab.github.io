@@ -1,4 +1,4 @@
-# Spoqa development blog
+# JANDI Tech Blog
 
 ## Requirements
 
@@ -9,8 +9,7 @@
 1. _post 디렉토리 밑에 [Markdown] 문법으로 포스트를 작성합니다.[yyyy-mm-dd-제목.md]
 2. 해당 내용을 커밋하고 메인 저장소에 푸시합니다.
 
-        $ git add -A
-        $ git commit -m "Add a post..."
+        $ git commit -am "Add a post..."
         $ git push
         
 ## Testing

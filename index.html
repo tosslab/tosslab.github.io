@@ -9,13 +9,13 @@ description: 안녕하세요. 잔디 서비스를 개발중인 토스랩 식구�
     <ul class="posts">
         {% for post in paginator.posts %}
         <li class="post post__list">
-            {% assign author = site.authors[post.author] %}
+            {% assign author = site.data.authors[post.author] %}
             <div class="post__list-profile">
                 {% include profile.md %}
             </div>
             <div class="post__list-meta">
-                <span class="post__list-meta__author">{{ author.nickname }}</span>
-                <span class="post__list-meta__date">{{ post.date | date: "%Y년 %m월 %d일" }}</span>
+                <span class="post__list-meta__author author-name">{{ author.nickname }}</span>
+                <span class="post__list-meta__date date">{{ post.date | date: "%Y년 %m월 %d일" }}</span>
             </div>
             <h2 class="post__list-title">
                 <a class="post__list-title__link" href="{{ post.url }}">{{ post.title }}</a>
