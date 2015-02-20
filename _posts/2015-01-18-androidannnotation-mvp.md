@@ -3,7 +3,6 @@ layout: post
 title: "AndroidAnnotation 과 MVP 패턴"
 author: steve
 tags: [androidannotation, mvp, pattern]
-fullview: true
 ---
 
 ## Android 개발 코드의 구조화

@@ -17,6 +17,11 @@ layout: default
         {% endfor %}
         </ul>
     </section>
+    <section class="article-share">
+        <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+        <a class="twitter-share-button" href="https://twitter.com/share" data-count="none" data-hashtags="JANDI">Tweet</a>
+        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
+    </section>
     <section class="article-author">
         {% include profile.md %}
         <p>
@@ -29,37 +34,24 @@ layout: default
         </p>
     </section>
 
-
-
-    <section class="share col-sm-6">
-        <h4 class="section-title">Share Post</h4>
-        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text={{page.title | encode}}{% if author.twitter%}&via={{author.twitter}}{% endif %}"
-           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-            <i class="fa fa-twitter fa-lg"></i>
-            Twitter
-        </a>
-        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
-           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-            <i class="fa fa-facebook fa-lg"></i>
-            Facebook
-        </a>
-        <a class="btn btn-default btn-sm gplus"
-           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
-            <i class="fa fa-google-plus fa-lg"></i>
-            Google+
-        </a>
-    </section>
-
-    <ul class="pager">
+    <ul class="pagination">
     {% if page.previous %}
-        <li class="previous"><a href="{{ site.BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Previous</a></li>
+        <li class="prev">
+            <a href="{{ site.BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&lt; 이전글 보기</a>
+        </li>
     {% else %}
-        <li class="previous disabled"><a>&larr; Previous</a></li>
+        <li class="prev disabled">
+            <a>&lt; 이전글 보기</a>
+        </li>
     {% endif %}
     {% if page.next %}
-        <li class="next"><a href="{{ site.BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &rarr;</a></li>
+        <li class="next">
+            <a href="{{ site.BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">다음글 보기 &gt;</a>
+        </li>
     {% else %}
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next disabled">
+            <a>다음글 보기 &gt;</a>
+        </li>
     {% endif %}
     </ul>
 

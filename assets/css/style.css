@@ -45,11 +45,23 @@ table tr {
 table tr:nth-child(2n) {
     background-color: #F8F8F8;
 }
+::-moz-selection {
+	/*background: #205E44;*/
+	background: #319168;
+	color: #fff;
+	text-shadow:none;
+}
+::selection {
+	background: #319168;
+	color: #fff;
+	text-shadow:none;
+}
 
 /* Common */
 a, a:visited {
 	text-decoration: none;
-	color: #3073b3;
+	/*color: #3073b3;*/
+	color: #41c08a;
 }
 a:hover, a:active {
 	text-decoration: underline;
@@ -154,10 +166,6 @@ header a:visited {
 	padding-bottom: 1em;
 	margin-bottom: 1.5em;
 }
-
-
-
-
 nav a {
 	display: inline-block;
 	padding: 16px 10px 10px;
@@ -180,17 +188,6 @@ nav a.selected {
 	vertical-align: -6px;
 	margin-left: 12px;
 }
-.links {
-	border-top: 1px solid #E6E6E6;
-	margin: 1em 0;
-	padding-top: 0.2em;
-	padding-left: 0;
-	list-style-type: none;
-	font-size: 1.2em;
-}
-.links li {
-	padding: 0.2em 0;
-}
 .social-icon {
 	padding: 0.2em 0; 
 }
@@ -201,28 +198,39 @@ nav a.selected {
 	line-height: 3.8em;
 }
 
+
 /* Footer */
 footer {
 	font-size: small;
-	color: #666;
-	line-height: 2em;
-	color: #858585;
-	padding: 0 1em;
+	line-height: 1.5rem;
+	color: #1a1a1a;
+	padding: 0 1rem;
 	text-align: center;
 }
 footer p {
 	margin: 0;
 }
+footer a,
+footer a:visited {
+	color: #858585;
+}
+footer a:hover,
+footer a:active {
+	color: #1a1a1a;
+}
 footer .links {
-	border: none;
+	list-style-type: none;
+	margin: .5rem 0 3rem;
+	padding: 0;
+	font-size: 1.2em;
 }
 footer .links li {
 	display: inline;
 	padding: 0 0.2em;
 }
-footer .links a:hover {
-	text-decoration: none;
-}
+
+
+/* Blogs */
 ul.posts {
 	list-style-type: none;
 	margin-bottom: 2em;
@@ -268,18 +276,15 @@ ul.posts {
 }
 
 
-
-
+/* Article */
 .site {
 	text-align: justify;
 	max-width: 800px;
 	margin: 60px auto 60px;
 	line-height: 1.5em;
 }
-
 article section {
 	padding: 1.5em 0;
-	/*border-bottom: 1px solid #eaeaea;*/
 }
 .article-header .date {
 	margin: 0 0 0.3em;
@@ -319,38 +324,19 @@ article section {
 .article-content h3 {
 	margin: 1.5rem 0;
 }
-
 .article-content p,
 .article-content ul,
 .article-content ol {
 	margin: 1rem 0;
 }
+.article-content a,
+.article-content a:visited {
+	color: #428bca;
+}
+.article-share {
+	margin-top: -3rem;
+}
 
-/* Tag from https://alexpearce.me */
-.tags {
-	padding: 0;
-	list-style-type: none;
-	font-size: 0.8em;
-	color: #aaa;
-}
-.tags i {
-	float: left;
-	margin: 6px 3px 0 0;
-}
-.tags li {
-	float: left;
-	margin: 0;
-}
-.tags li a {
-	padding: 1px 3px 2px 3px;
-	color: #bcc5c8;
-}
-.tags li a:hover {
-	color: #5e6d74;
-}
-.post-tags {
-	margin: 20px 0 0 0;
-}
 
 /* normalize.css Clearfix */
 .cf {
@@ -409,13 +395,27 @@ img {
 }
 .pagination {
 	list-style-type: none;
+	width: 100%;
 	font-size: 0.9em;
+	margin: 3rem 0;
 	padding-left: 0;
+	overflow: hidden;
+	text-align: center;
 }
 .pagination li {
+	display: inline-block;
 	position: relative;
-	float: left;
+	/*float: left;*/
 	padding: 6px 12px;
+}
+.pagination li.prev {
+	float: left;
+}
+.pagination li.next {
+	float: right;
+}
+.pagination li.disabled {
+	display: none;
 }
 .clearfix:after { 
 	content: "."; 
@@ -497,18 +497,18 @@ article {
 .archives {
 	color: #1c1c1c;
 }
-.archives h3 {
+h3.archives-year {
 	margin: 3rem 0 1.5rem;
 	padding-bottom: 1px;
 	font-weight: 400;
 }
-.archives ul {
+ul.archives-posts {
 	list-style-type: none;
 	/*padding-left: 0px;*/
 }
-.archives ul li {
+ul.archives-posts li {
 	margin: 1rem 0;
-	line-height: 150%;
+	/*line-height: 150%;*/	
 }
 .archives a,
 .archives a:visited {
@@ -531,35 +531,123 @@ article {
 }
 .author {
 	position: relative;
-	margin: 1.5rem 0;
-	padding: 20px 10px 20px 170px;
-	min-height: 160px;
+	margin: 2rem 0;
+	padding: 10px 10px 10px 120px;
+	min-height: 120px;
 }
 .author .profile {
 	position: absolute;
 	left: 0;
 	top: 0;
-	max-width: 150px;
+	max-width: 100px;
 }
 .author-name {
-	font-size: 150%;
+	font-size: 120%;
 }
 .author-bio {
-	margin: 10px 0;
+	margin: 6px 0 0px;
 	font-size: 110%;
 }
+.author-meta {
+	margin: 0;
+}
+.author-position {
+	font-weight: 400;
+	font-size: 95%;
+	color: #999;
+}
+.author-position:before {
+	color: #f5f5f5;
+	content: '|';
+	padding: 0 5px 0 3px;
+}
 .author-outlink {
-	margin: 0 10px;
-	font-size: 130%;
+	margin: 0;
+	font-size: 110%;
 }
 .author-outlink i {
 	margin: 0 1px;
 }
 
-
-footer {
-	padding-top: 15px;
+.joinus {
+	font-size: 120%;
 }
+.joinus .updated {
+	margin-left: 1rem;
+}
+.joinus .intro {
+	
+}
+.joinus h1 {
+	margin: 3rem 0;
+}
+.joinus h3 {
+	background: #696969;
+	color: #fff;
+	padding: 8px 10px 5px;
+	margin: 2rem 0 1rem;
+}
+.joinus .slide {
+	text-align: center;
+	margin: 1rem 0;
+}
+.joinus .link {
+
+}
+
+.fb-like span {
+	vertical-align: top !important;
+	margin-top: 0px;
+}
+
+
+/* Tag from https://alexpearce.me */
+ul.tags {
+	padding: 0;
+	list-style-type: none;
+	font-size: 0.8em;
+	color: #aaa;
+	overflow: hidden;
+}
+ul.tags i {
+	float: left;
+	margin: 6px 3px 0 0;
+}
+ul.tags li {
+	float: left;
+	margin: 0;
+}
+ul.tags li a,
+ul.tags li a:visited {
+	padding: 1px 3px 2px 3px;
+	color: #bcc5c8;
+}
+ul.tags li a:hover,
+ul.tags li a:active {
+	color: #5e6d74;
+}
+.post-tags {
+	margin: 20px 0 0 0;
+}
+
+
+/* Search */
+#search ul {
+	list-style-type: none;
+}
+#search .search-value {
+	/*background: #696969;*/
+	/*color: #fff;*/
+	padding: 8px 10px 5px;
+	margin: 2rem 0 1rem;
+} 
+#search .search-value i {
+	position: relative;
+	top: -2px;
+	font-size: 85%;
+	margin-right: 8px;
+}
+
 
 
 @media (max-width: 360px) {

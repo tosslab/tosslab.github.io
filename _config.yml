@@ -23,7 +23,7 @@ redcarpet:
 gems:
     - jemoji
 
-paginate: 10
+paginate: 5
 
 author_dir: author
 

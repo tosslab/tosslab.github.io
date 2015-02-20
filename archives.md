@@ -25,13 +25,13 @@ description: 안녕하세요. 잔디 서비스를 개발중인 토스랩 식구�
 <section class="archives">
 {% for post in site.posts %}
 	{% unless post.next %}
-		<h3>{{ post.date | date: '%Y년' }}</h3><ul>
+		<h3 class="archives-year">{{ post.date | date: '%Y년' }}</h3><ul class="archives-posts">
 	{% else %}
 		{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
 		{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
 		{% if year != nyear %}
 			{% if forloop.index != 1 %}</ul>{% endif %}
-			<h3>{{ post.date | date: '%Y년' }}</h3><ul>
+			<h3 class="archives-year">{{ post.date | date: '%Y년' }}</h3><ul class="archives-posts">
 		{% endif %}
 	{% endunless %}
 	<li>
@@ -42,6 +42,14 @@ description: 안녕하세요. 잔디 서비스를 개발중인 토스랩 식구�
 		<h2>
 			<a href="{{ post.url }}">{{ post.title }}</a>
 		</h2>
+		<ul class="tags">
+			<i class="fa fa-tags"></i>
+			{% for tag in post.tags %}
+            <li>
+                <a href="/search/?tags={{ tag }}">{{ tag | downcase }}</a>
+            </li>
+            {% endfor %}
+		</ul>
 	</li>
 {% endfor %}
 </section>

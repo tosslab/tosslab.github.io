@@ -14,14 +14,14 @@ description: 안녕하세요. 잔디 서비스를 개발중인 토스랩 식구�
                 {% include profile.md %}
             </div>
             <div class="post__list-meta">
-                <span class="post__list-meta__author author-name">{{ author.nickname }}</span>
+                <span class="post__list-meta__author nickname">{{ author.nickname }}</span>
                 <span class="post__list-meta__date date">{{ post.date | date: "%Y년 %m월 %d일" }}</span>
             </div>
             <h2 class="post__list-title">
                 <a class="post__list-title__link" href="{{ post.url }}">{{ post.title }}</a>
             </h2>
             <p class="post__list-meta__description">{{ post.description }}</p>
-            <ul class="cf tags">
+            <ul class="tags">
                 <i class="fa fa-tags"></i>
                 {% for tag in post.tags %}
                 <li>
@@ -33,15 +33,6 @@ description: 안녕하세요. 잔디 서비스를 개발중인 토스랩 식구�
         {% endfor %}
     </ul>
     <ul class="pagination clearfix">
-        {% if paginator.previous_page %}
-            {% if paginator.previous_page == 1 %}
-            <li><a href="/">Prev</a></li>
-            {% else %}
-            <li><a href="/page{{ paginator.previous_page }}">Prev</a></li>
-            {% endif %}
-        {% else %}
-        <li><span class="disabled">Prev</span></li>
-        {% endif %}
         {% if paginator.page ==1 %}
         <li><span class="active">1</span></li>
         {% else %}
@@ -54,10 +45,5 @@ description: 안녕하세요. 잔디 서비스를 개발중인 토스랩 식구�
             <li><a href="/page{{ count }}">{{ count }}</a></li>
             {% endif %}
         {% endfor %}
-        {% if paginator.next_page %}
-        <li><a href="/page{{ paginator.next_page }}">Next</a></li>
-        {% else %}
-        <li><span class="disabled">Next</span></li>
-        {% endif %}
     </ul>
 </section>

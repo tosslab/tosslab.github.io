@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<html lang="{% if page.language == nil %}en{% else %}{{ page.language }}{% endif %}">
+<!--
+
+           oooo   .oooooo.   ooooo ooooo      ooo    ooooo     ooo  .oooooo..o
+           `888  d8P'  `Y8b  `888' `888b.     `8'    `888'     `8' d8P'    `Y8
+            888 888      888  888   8 `88b.    8      888       8  Y88bo.     
+            888 888      888  888   8   `88b.  8      888       8   `"Y8888o. 
+            888 888      888  888   8     `88b.8      888       8       `"Y88b
+            888 `88b    d88'  888   8       `888      `88.    .8'  oo     .d8P
+        .o. 88P  `Y8bood8P'  o888o o8o        `8        `YbodP'    8""88888P' 
+        `Y888P    
+
+                                recruit@tosslab.com
+
+-->
+<html lang="{% if page.language == nil %}ko{% else %}{{ page.language }}{% endif %}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        {{ page.title }}
-        {% if page.category == 'blog' and page.url != '/blog/index.html' %}
-        - JANDI Tech Blog
-        {% endif %}
-    </title>
+    <title>{{ page.title }} | JANDI Tech</title>
     {% if page.description %}
     <meta name="description" content="{{page.description}}" />
     {% endif %}
     <link rel="shortcut icon" type="image/x-icon" href="{{ site.BASE_PATH }}/assets/ico/favicon.ico" />
-    <!-- <link rel="stylesheet" href="{{ site.BASE_PATH }}/assets/css/site.css" /> -->
     <link rel="stylesheet" href="{{ site.BASE_PATH }}/assets/css/style.css" />
     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/earlyaccess/nanumgothic.css'>
     <link rel="stylesheet" href="{{ site.BASE_PATH }}/assets/css/font-awesome.min.css">
     <link rel="alternate" type="application/atom+xml" title="RSS Feed for JANDI tech blog" href="/feed.xml" />
-    <!--<script src="{{ site.BASE_PATH }}/assets/js/instantclick.min.js" data-no-instant></script>
-    <script data-no-instant>InstantClick.init();</script>-->
     {{ page.extra_head }}
 </head>
 <body>
@@ -34,7 +40,6 @@
             <a class="{% if page.category == 'archives' %}selected{% endif %}" href="/archives/">전체글</a>
             <!-- <a class="{% if page.category == 'tags' %}selected{% endif %}" href="/tags/">태그</a> -->
             <a class="{% if page.category == 'joinus' %}selected{% endif %}" href="/joinus/">채용정보</a>
-            <!-- <a href="/feed.xml" target="_blank">RSS</a> -->
         </nav>
         <div class="clear"></div>
     </header>
@@ -42,18 +47,37 @@
     <div class="container">
         <div class="site">
             {{ content }}
-            <div class="separator"></div>
         </div>
     </div>
+    <div class="separator"></div>
     <div class="clear"></div>
     <footer>
         {% include footer.md %}
     </footer>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!-- Social Share -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1536412026638644&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <script src="https://apis.google.com/js/platform.js" async defer>
+        {lang: 'ko'}
+    </script>
+    <script>
+        window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+    </script>
+    <!-- jQuery -->
+    <script src="{{ site.BASE_PATH }}/assets/js/jquery-1.11.2.min.js"></script>
     <!-- tag, category search -->
     <script src="{{ site.BASE_PATH }}/assets/js/alexpearce.js"></script>
     <!-- TOC Generator -->
     <script src="{{ site.BASE_PATH }}/assets/js/jquery.toc-1.1.4.min.js"></script>
+    <script>
+        $('#toc').toc({exclude: 'h1, h6', autoId: true});
+    </script>
     <!-- Google Analytics -->
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -64,9 +88,6 @@
         ga('create', '', '');
         ga('send', 'pageview');
     </script>
-    <!-- TOC Generator -->
-    <script>
-        $('#toc').toc({exclude: 'h1, h6', autoId: true});
-    </script>
+    <script src="{{ site.BASE_PATH }}/assets/js/app.js" type="text/javascript"></script>
 </body>
 </html>
