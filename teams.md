@@ -1,0 +1,50 @@
+---
+layout: default
+category: teams
+permalink: /teams/
+title: Teams
+description: 테크 블로그를 만드는 토스랩 식구들을 소개합니다.
+---
+
+<section class="teams">
+	<h1>반갑습니다</h1>
+	<p>팀 내 협업 클라우드 커뮤니케이션 서비스 <a href="https://www.jandi.com" target="_blank">JANDI(잔디)</a>를 만들어 나가는 (주)토스랩 개발팀의 기술 블로그입니다.</p>
+	<p>잔디는 협업에서 발생하는 비효율성을 제거하고 직원들 간의 소통을 원활하게 만들어 주는 솔루션입니다.</p>
+	<p>저희의 비전은 개발자들이 직접 문화를 만들어나가고 인정받는 환경 아래 사용자에게 최고의 기술력을 가진 제품을 제공하여 커뮤니케이션 시장을 변화시키는 것입니다.</p>
+	<p>그 일환으로</p>
+	<ul>
+		<li>잔디를 만들면서 겪은 여러 가지 소중한 시행착오</li>
+		<li>새로운 기술의 도입을 위해 치열하게 연구하며 배운 점</li>
+		<li>사소하지만 단단하게 만들어 가는 개발 문화</li>
+	</ul>
+	<p>등을 성실히 기록하고 함께 공유하려 합니다.</p>
+	<p>더불어 기술 블로그 또한 <a href="https://github.com/tosslab/tosslab.github.io" target="_blank">Github Page</a>로 운영되는 만큼 오픈소스로 공개되어 있으니 혹여 내용 중 잘못된 부분이 있다면 따끔하게 짚어주시고, 함께 논의해보면 좋을 만한 이슈 또한 서슴지 말고 댓글 · <a href="mailto:product@tosslab.com">메일</a> · <a href="https://help.github.com/articles/using-pull-requests/" target="_blank">Pull Request</a>를 통해 알려주세요.</p>
+	<h1>팀원들 소개</h1>
+	{% for authors in site.data.authors %}
+	{% assign author = authors[1] %}
+	<div class="author">
+		{% include profile.md %}
+		<h3>
+			<span class="author-name">{{ author.nickname }}</span>
+			<span class="author-position">{{ author.position }}</span>
+		</h3>
+		<p class="author-bio">
+			{{ author.bio }}
+		</p>
+		<p class="author-outlink">
+		{% if author.blog %}
+			<a href="{{ author.blog }}" target="_blank"><i class="fa fa-home icon-blog"></i></a>
+		{% endif %}
+		{% if author.github %}
+			<a href="https://github.com/{{ author.github }}" target="_blank"><i class="fa fa-github icon-github"></i></a>
+		{% endif %}
+		{% if author.facebook %}
+			<a href="https://facebook.com/{{ author.facebook }}" target="_blank"><i class="fa fa-facebook-square icon-facebook"></i></a>
+		{% endif %}
+		{% if author.twitter %}
+			<a href="https://twitter.com/{{ author.twitter }}" target="_blank"><i class="fa fa-twitter-square icon-twitter"></i></a>
+		{% endif %}
+		</p>
+	</div>
+	{% endfor %}
+</section>

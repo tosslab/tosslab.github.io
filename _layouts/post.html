@@ -1,4 +1,58 @@
 ---
 layout: default
 ---
-{% include post.html %}
+
+{% assign author = site.data.authors[page.author] %}
+<article>
+    <section class="article-header">
+        <p class="date">{{ page.date | date: "%Y년 %m월 %d일" }} | {{ author.nickname }}</p>
+        <h1 class="title">{{ page.title }}</h1>
+    </section>
+    <section class="post article-content">
+        {{ content }}
+        <ul class="tags post-tags cf">
+            <i class="fa fa-tags"></i>
+        {% for tag in page.tags %}
+            <li><a href="/search/?tags={{ tag }}">{{ tag | downcase }}</a></li>
+        {% endfor %}
+        </ul>
+    </section>
+    <section class="article-share">
+        <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+        <a class="twitter-share-button" href="https://twitter.com/share" data-count="none" data-hashtags="JANDI">Tweet</a>
+        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
+    </section>
+    <section class="article-author">
+        {% include profile.md %}
+        <p>
+            <span><strong>{{ author.nickname }}</strong></span>
+            |
+            <span class="position">{{ author.position }}</span>
+        </p>
+        <p class="bio">
+            {{ author.bio }}
+        </p>
+    </section>
+
+    <ul class="pagination">
+    {% if page.previous %}
+        <li class="prev">
+            <a href="{{ site.BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&lt; 이전글 보기</a>
+        </li>
+    {% else %}
+        <li class="prev disabled">
+            <a>&lt; 이전글 보기</a>
+        </li>
+    {% endif %}
+    {% if page.next %}
+        <li class="next">
+            <a href="{{ site.BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">다음글 보기 &gt;</a>
+        </li>
+    {% else %}
+        <li class="next disabled">
+            <a>다음글 보기 &gt;</a>
+        </li>
+    {% endif %}
+    </ul>
+
+</article>
