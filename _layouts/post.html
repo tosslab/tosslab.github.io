@@ -25,15 +25,12 @@ layout: default
     <section class="article-author">
         {% include profile.md %}
         <p>
-            <span><strong>{{ author.nickname }}</strong></span>
-            |
-            <span class="position">{{ author.position }}</span>
+            <span><strong>{{ author.nickname }}</strong></span> | <span class="position">{{ author.position }}</span>
         </p>
         <p class="bio">
             {{ author.bio }}
         </p>
     </section>
-
     <ul class="pagination">
     {% if page.previous %}
         <li class="prev">
@@ -54,5 +51,4 @@ layout: default
         </li>
     {% endif %}
     </ul>
-
 </article>
