@@ -5,7 +5,6 @@ permalink: /teams/
 title: Teams
 description: 테크 블로그를 만드는 토스랩 식구들을 소개합니다.
 ---
-
 <section class="teams">
 	<h1>반갑습니다</h1>
 	<p>팀 내 협업 클라우드 커뮤니케이션 서비스 <a href="https://www.jandi.com" target="_blank">JANDI(잔디)</a>를 만들어 나가는 (주)토스랩 개발팀의 기술 블로그입니다.</p>
@@ -32,18 +31,7 @@ description: 테크 블로그를 만드는 토스랩 식구들을 소개합니�
 			{{ author.bio }}
 		</p>
 		<p class="author-outlink">
-		{% if author.blog %}
-			<a href="{{ author.blog }}" target="_blank"><i class="fa fa-home icon-blog"></i></a>
-		{% endif %}
-		{% if author.github %}
-			<a href="https://github.com/{{ author.github }}" target="_blank"><i class="fa fa-github icon-github"></i></a>
-		{% endif %}
-		{% if author.facebook %}
-			<a href="https://facebook.com/{{ author.facebook }}" target="_blank"><i class="fa fa-facebook-square icon-facebook"></i></a>
-		{% endif %}
-		{% if author.twitter %}
-			<a href="https://twitter.com/{{ author.twitter }}" target="_blank"><i class="fa fa-twitter-square icon-twitter"></i></a>
-		{% endif %}
+			{% include social-link.md %}
 		</p>
 	</div>
 	{% endfor %}

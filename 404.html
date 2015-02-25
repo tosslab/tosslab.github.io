@@ -1,13 +1,16 @@
 ---
 layout: page
 ---
-
-<h1>404</h1>
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <div><small>{{ post.date | date_to_string }}</small></div>
-    </li>
-  {% endfor %}
-</ul>
+<section class="teams">
+	<div class="center">
+		<h1>요청하신 페이지를 찾을 수 없습니다.</h1>
+	</div>
+	<ul>
+  	{% for post in site.posts %}
+    	<li>
+			<a href="{{ post.url }}">{{ post.title }}</a>
+			<div><small>{{ post.date | date: "%Y년 %m월 %d일" }}</small></div>
+		</li>
+  	{% endfor %}
+	</ul>
+</section>
