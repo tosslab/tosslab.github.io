@@ -55,13 +55,12 @@ table tr:nth-child(2n) {
     background-color: #F8F8F8;
 }
 ::-moz-selection {
-	/*background: #205E44;*/
-	background: #319168;
+	background: #05836B;
 	color: #fff;
 	text-shadow:none;
 }
 ::selection {
-	background: #319168;
+	background: #05836B;
 	color: #fff;
 	text-shadow:none;
 }
@@ -137,10 +136,6 @@ a:hover, a:active {
 }
 
 /* Header and navigation */
-.top-bar {
-	height: 5px;
-	background-color: #31c08a;
-}
 header {
 	margin: auto;
 	max-width: 800px;
