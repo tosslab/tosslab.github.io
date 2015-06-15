@@ -52,13 +52,3 @@ steve:
     blog: "https://medium.com/@jsuch2362"
     facebook: "steve.SU.J"
     github: "ZeroBrain"
-peter:
-    name: "윤영식" 
-    nickname: "nulpulum"
-    email: "peter@tosslab.com"
-    position: "Web"
-    bio: "백앤드 받고 요즘은 프론트앤드에서 놀고 있어요. Data와 UI/UX를 어우르는 풀스택 개발자로 80세까지 재미나게 놀 계획이랍니다."
-    blog: "http://mobicon.tistory.com" 
-    twitter: "@nulpulum"
-    facebook: "nulpulum"
-    github: "ysyun"
