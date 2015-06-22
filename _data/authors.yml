@@ -23,10 +23,8 @@ mk:
     nickname: "MK"
     email: "mk@tosslab.com"
     position: "Back-end"
-    bio: "기대가 큽니다"
-    blog: "https://agileup.postach.io"
+    bio: "다양한 경험을 즐기며, 같은 실수를 반복하지 않기 위해 노력합니다.<br>회사 옥상에서 맥주와 함께 캐치볼 할 수 있는 날이 오길 기대합니다."
     twitter: "akamk87"
-    facebook: "agileup"
     github: "agileup"
 kevin:
     name: "이수환"
