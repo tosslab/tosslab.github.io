@@ -50,3 +50,11 @@ steve:
     blog: "https://medium.com/@jsuch2362"
     facebook: "steve.SU.J"
     github: "ZeroBrain"
+hugo:
+    name: "강한구" 
+    nickname: "Hugo.Kang"
+    #email: "hugo.kang@tosslab.com" 
+    position: "Analytics" 
+    bio: "욕심을 줄이던지, 잠을 줄이던지"
+    twitter: "kgcrom"
+    github: "kgcrom"
