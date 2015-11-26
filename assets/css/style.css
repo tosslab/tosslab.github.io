@@ -68,8 +68,8 @@ table tr:nth-child(2n) {
 /* Common */
 a, a:visited {
 	text-decoration: none;
-	/*color: #3073b3;*/
-	color: #41c08a;
+	color: #3073b3;
+/* 	color: #41c08a; */
 }
 a:hover, a:active {
 	text-decoration: underline;
@@ -138,8 +138,9 @@ a:hover, a:active {
 /* Header and navigation */
 header {
 	margin: auto;
-	max-width: 800px;
-	width: 100%;
+	width: 80%;
+    background-color: #154a67;
+    padding: 0 10% 0 10%;
 }
 header .brand {
 	float: left;
@@ -156,10 +157,10 @@ header nav {
 }
 header a, a:active {
 	text-decoration: none;
-	color: #333;
+	color: #FFF;
 }
 header a:visited {
-	color: #333;
+	color: #FFF;
 }
 .header-bar {
 	height: 1px;
@@ -181,10 +182,10 @@ nav a:last-child {
 nav a:hover {
 	-webkit-transition: 0.2s ease-out all;
 	text-decoration: none;
-	border-bottom: 2px solid #31c08a;
+	border-bottom: 2px solid #00ABE6;
 }
 nav a.selected {
-	border-bottom: 2px solid #31c08a;
+	border-bottom: 2px solid #00ABE6;
 }
 .avatar {
 	border-radius: 50%;
