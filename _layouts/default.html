@@ -30,17 +30,17 @@
 </head>
 <body>
     <header>
-        <a class="brand" href="/">
-            <img src="{{ site.BASE_PATH }}/assets/media/logo_jandi.png" class="brand-logo">
-        </a>
-        <nav>
-            <a class="{% if page.category == 'teams' %}selected{% endif %}" href="/teams/">소개</a>
-            <a class="{% if page.category == 'home' %}selected{% endif %}" href="/">블로그</a>
-            <a class="{% if page.category == 'archives' %}selected{% endif %}" href="/archives/">전체글</a>
-            <!-- <a class="{% if page.category == 'tags' %}selected{% endif %}" href="/tags/">태그</a> -->
-            <a class="{% if page.category == 'joinus' %}selected{% endif %}" href="/joinus/">채용정보</a>
-        </nav>
-        <div class="clear"></div>
+            <a class="brand" href="/">
+                <img src="{{ site.BASE_PATH }}/assets/media/brand_logo.svg" class="brand-logo">
+            </a>
+            <nav>
+                <a class="{% if page.category == 'teams' %}selected{% endif %}" href="/teams/">소개</a>
+                <a class="{% if page.category == 'home' %}selected{% endif %}" href="/">블로그</a>
+                <a class="{% if page.category == 'archives' %}selected{% endif %}" href="/archives/">전체글</a>
+                <!-- <a class="{% if page.category == 'tags' %}selected{% endif %}" href="/tags/">태그</a> -->
+                <a class="{% if page.category == 'joinus' %}selected{% endif %}" href="/joinus/">채용정보</a>
+            </nav>
+            <div class="clear"></div>
     </header>
     <div class="header-bar"></div>
     <div class="container">
