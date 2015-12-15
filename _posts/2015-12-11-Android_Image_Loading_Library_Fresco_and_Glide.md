@@ -239,7 +239,7 @@ draweeView.setAspectRatio(1.33f);
 ```
 
 두번째로 Fresco 에서 제공하는 CustomView 인 DraweeView 를 대부분의 곳에서 써야(만) 합니다. 이미지 Resource 를 동기적으로 받을 수 있는 방법이 없으며, 비동기적인 방식으로 콜백을 통해 받더라도 Fresco 의 주요 개념인 닫을 수 있는 참조, CloseableReference 를 제때 닫아줘야 하기 때문입니다.
-많은 앱들은 Custom ImageView(PhotoView 라던지 PhotoView 라든지) 를 많이 사용할텐데 Fresco 의 주요 개념 중 하나인 ImagePipeLine 과 DataSource 를 이용해서 CustomView 에 Resource 를 붙이는 것이 어렵게 느껴질 수 있을 듯 합니다.
+많은 앱들은 Custom ImageView(PhotoView 라던지 PhotoView 라든지) 를 많이 사용할텐데 Fresco 의 주요 개념 중 하나인 ImagePipeLine 과 DataSource 를 이용해서 CustomView 에 Resource 를 붙이는 것이 어렵게 느껴질 수 있을 듯 합니다. [이미지 파이프라인](http://fresco.recrack.com/docs/intro-image-pipeline.html) 을 꼼꼼히 살펴보세요 !!
 
 ### 끝으로
 Glide 와 Fresco. Glide 는 3.6.1 까지 release 되면서 사용하는 개발자들도 많아지고 솔루션 공유도 잘되고 있기 때문에 또 퍼포먼스 측면에서도 믿음직한 모습을 보입니다.
