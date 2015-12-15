@@ -27,21 +27,21 @@ Glide 가 나오면서 쉽고 간결하고 빠르게 원하는 이미지를 언�
 
 ##### 1. build.gradle dependency 추가
 
-```
+```java
 compile 'com.github.bumptech.glide:glide:3.6.1' // Glide
 compile 'com.facebook.fresco:fresco:0.8.1' // Fresco (문서에는 0.5.0 이지만 GitHub 최신 릴리즈 버전이 0.8.1 입니다.)
 ```
 
 ##### 2. AndroidManifest.xml 에 uses-permission 추가
 
-```
+```java
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
 ### 1. 이미지를 로딩하고 ImageView 에 붙이는 방법부터 알아봅시다. 
 먼저 Glide
 
-```
+```java
 Glide.with(context)
     .load(String | File | Integer(resource id) | byte[])
     .into(imageView);
@@ -54,14 +54,14 @@ Glide.with(context)
  
 XML 에서는 `ImageView` 대신 Fresco 의 SimpleDraweeView 를 사용합니다.
 
-```
+```java
 <!-- <ImageView -->
 <com.facebook.drawee.view.SimpleDraweeView
 ```
 
 다음 다시 이미지를 로딩하는 구문으로 돌아와서
 
-```
+```java
 SimpleDraweeView draweeView = (SimpleDraweeView) find...
 draweeView.setImageUri(uri);
 ```
@@ -69,7 +69,7 @@ draweeView.setImageUri(uri);
 Glide 에 비해 취해야 할 행동들이 조금 아니 많이 많은데 결론적으로 SimpleDraweeView 의 setImageUri 를 호출하면 자동으로 이미지가 불려옵니다.
 다만 여기서 Uri 를 만들어줘야 하는 비용이 또 생겼네요.
  
-```
+```java
 Uri.parse("http:// | Uri.parse("file:// | Uri.parse("asset:// | Uri.parse("res://
 혹은
 new Uri.Builder()
@@ -81,7 +81,7 @@ new Uri.Builder()
 ### 2. 이미지를 로딩 할 때 대기 이미지를 설정해봅시다.
 먼저 Glide
 
-```
+```java
 Glide.with(context)
     .load(...)
     .placeHolder(Integer(resoure id) | Drawable)
@@ -92,7 +92,7 @@ Glide.with(context)
 
 먼저 XML
 
-```
+```java
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:fresco="http://schemas.android.com/apk/res-auto" // xml namespace 를 추가해줍니다.
@@ -103,7 +103,7 @@ Glide.with(context)
 
 다음 Java Code
 
-```
+```java
 GenericDraweeHierarchy hierarchy = draweeView.getHierarchy();
 hierarchy.setPlaceholderImage(R.drawable.ic_launcher);
 draweeView.setHierarchy(hierarchy);
@@ -115,7 +115,7 @@ draweeView.setImageURI(uri);
 먼저 Glide
 는 딱히 Glide 만 이용해서 할 수 있는 방법이 마땅치 않습니다.
 
-```
+```java
 imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
 Glide.with(getContext())
     .load(url)
@@ -140,8 +140,7 @@ Glide.with(getContext())
 
 다음 Fresco
 
-
-```
+```java
 <com.facebook.drawee.view.SimpleDraweeView
     fresco:placeholderImage="@drawable/ic_launcher"
     fresco:placeholderImageScaleType="fitCenter"
@@ -150,7 +149,7 @@ Glide.with(getContext())
 
 다음 Java Code
 
-```
+```java
 GenericDraweeHierarchy hierarchy = draweeView.getHierarchy();
 Drawable placeHolder = getContext().getResources().getDrawable(R.drawable.ic_launcer);
 hierarchy.setPlaceholderImage(placeHolder, ScalingUtils.ScaleType.FIT_CENTER);
@@ -171,7 +170,7 @@ BitmapTransformation 을 상속받는 클래스를 만들어서 직접 Bitmap �
 이 때 Xfermode, PoterDuffXfermode, Canvas, Paint 등등 굉장히 많은 정보를 학습하여야 하고 케이스 별로 테스트를 해봐야 하는 리소스가 필요하게 됩니다.(개발자로서 당연한 얘기지만)
 이 부분을 구글링을 통해 해결하거나 혹은 android support v4 에 추가된 RoundedBitmapDrawable 를 사용하여야 합니다.
 
-```
+```java
 Glide.with(getContext())
     .load(url)
     .asBitmap()
@@ -189,7 +188,7 @@ Glide.with(getContext())
 
 Fresco 에서는 둥근 이미지 보여주기가 너무나도 쉽습니다.
 
-```
+```java
 // XML
 fresco:roundAsCircle="true" // 원형 이미지
 
@@ -220,7 +219,7 @@ http://fresco.recrack.com/docs/using-drawees-xml.html <- 더 많은 부분을 �
 물론 디자인 적으로 적어도 이미지인 부분은 절대적인 수치가 필요하다고 개인적으로 생각하지만 GridView 나 몇 몇 레이아웃에서 match_parent 등이 필요한 경우가 많기 때문에 이 부분은 꽤나 신경쓰입니다.
 게다가 원본 이미지가 어느 정도의 사이즈인지 판단이 불가능 한 경우도 있기 때문에 웬만한 경우엔 항상 ResizeOption 이 필요합니다.(Canvas 가 그릴 수 있는 최대치가 넘어버리면 "OpenGLRenderer: Bitmap too large to be uploaded into a texture" Exception 을 내기 때문입니다.)
   
-```
+```java
 ResizeOptions options = new ResizeOptions(20, 20); // Canvas 가 그릴 수 있는 최대 사이즈를 구해서 넘겨줘도 됩니다.
 
 ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(uri)
