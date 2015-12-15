@@ -12,16 +12,16 @@ fullview: true
 
 안드로이드에서 보다 빠르고 간결하게 이미지를 보여주기 위해 오픈소스 라이브러리 Picasso, AUIL 등이 등장했고,
 Glide 가 나오면서 쉽고 간결하고 빠르게 원하는 이미지를 언제 어디서든 보여 줄 수 있게 되었습니다.
-그러나 사람의 욕심은 끝이 없고 그것을 페이스북은 간파하는 것인지 많은 개발자들이 디자이너와 기획자의 요구를 웃으면서 받아들일 수 있게 더 편하고 친숙한 사용법을 제시한 라이브러리를 내놓았습니다. 
+그러나 사람의 욕심은 끝이 없고 그것을 페이스북은 간파한 것인지 많은 개발자들이 디자이너와 기획자의 요구를 웃으면서 받아들일 수 있게 더 편하고 친숙한 사용법을 제시한 라이브러리를 내놓았습니다. 
 
 ***Fresco*** : http://fresco.recrack.com
 
 심지어 **한글문서**까지 제공되고 있습니다 ! ~~(이 문서만으로도 Fresco 를 익힐 수 있다는 것은 안 알려줍니다.)~~
 
-지난 1년간 탄식도 했지만 결국은 감탄을 더 많이하고 만족하며 사용하던 이미지 로딩 라이브러리 Glide(갓).
+지난 1년간 탄식도 했지만 결국은 감탄을 더 많이하고 만족하며 사용하던 이미지 로딩 라이브러리 [Glide(갓)](https://github.com/bumptech/glide).
 최근에 이것을 이용해서 예쁜 디자인과 함께 이미지를 요리 할 때 백종원 선생님 만큼의 포스를 못 내는 듯한 느낌이 들었고, 급기야 다른 라이브러리 맛집을 찾아보게 됩니다.
 
-근근히 GitHub 트렌딩 페이지에 올라와서 눈독(갤럭시 사용자 아이폰 바라보듯)은 들였지만 저만치 바라보던 Fresco. 과연 어떤 장점이 있는지 Glide 사용성과 비교해보면서 Fresco 의 사용법을 알아보도록 하겠습니다.
+근근히 "[Github Trending](https://github.com/trending?l=java)"에 올라와서 눈독(갤럭시 사용자 아이폰 바라보듯)은 들였지만 저만치 바라보던 Fresco. 과연 어떤 장점이 있는지 Glide 사용성과 비교해보면서 Fresco 의 사용법을 알아보도록 하겠습니다.
 
 시작하기 전에 기본 준비는 해야겠죠?
 
@@ -39,7 +39,7 @@ compile 'com.facebook.fresco:fresco:0.8.1' // Fresco (문서에는 0.5.0 이지�
 ```
 
 ### 1. 이미지를 로딩하고 ImageView 에 붙이는 방법부터 알아봅시다. 
-먼저 Glide
+Glide:
 
 ```java
 Glide.with(context)
@@ -49,7 +49,7 @@ Glide.with(context)
 
 코드 한 두 줄로 네크워크, 로컬 파일, 리소스 등등에서 얻어온 이미지를 쉽게 ImageView에 붙일 수 있습니다.
      
-다음 Fresco
+Fresco:
 는 먼저 Application class 의 onCreate override 한 후에 `Fresco.initialize(context);` 구문을 추가해주어야 합니다. (`setContentView()` 가 호출되기 이전에 한 번만 호출하라고 명시되어 있네요.)
  
 XML 에서는 `ImageView` 대신 Fresco 의 SimpleDraweeView 를 사용합니다.
@@ -79,7 +79,7 @@ new Uri.Builder()
 ```
 
 ### 2. 이미지를 로딩 할 때 대기 이미지를 설정해봅시다.
-먼저 Glide
+Glide:
 
 ```java
 Glide.with(context)
@@ -111,9 +111,9 @@ draweeView.setHierarchy(hierarchy);
 draweeView.setImageURI(uri);
 ```
 
-## 2-1 대기 이미지는 FIT_CENTER 로 스케일하고 보여줄 원본 이미지는 FIT_XY 로 스케일해봅시다.
-먼저 Glide
-는 딱히 Glide 만 이용해서 할 수 있는 방법이 마땅치 않습니다.
+#### 2-1. 대기 이미지는 FIT_CENTER 로 스케일하고 보여줄 원본 이미지는 FIT_XY 로 스케일해봅시다.
+Glide:
+딱히 Glide 만 이용해서 할 수 있는 방법이 마땅치 않습니다.
 
 ```java
 imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -138,7 +138,7 @@ Glide.with(getContext())
 뭔가 억지스러워 보이네요...
 다른 방법으로 BitmapTransformation 을 상속받아 구현하는 것 방법이 떠오르네요 
 
-다음 Fresco
+Fresco:
 
 ```java
 <com.facebook.drawee.view.SimpleDraweeView
@@ -209,7 +209,7 @@ hierarchy.setRoundingParams(roundingParams);
 물론 내부적으로는 android support v4 에 추가된 RoundedBitmapDrawable 과 유사한 Drawable 을 만들어 사용되고 있지만 그것을 개발자가 신경쓰지 않을 수 있으니 정말 좋은 점이라고 보여집니다. 
 *GIF 이미지는 둥글게 보여지지 않습니다.*
 
-Image 의 외적인 부분을 다루는 것은 Fresco 가 아주 쉽게 해내어 줍니다.
+이미지의 외적인 부분을 다루는 것은 Fresco 가 아주 쉽게 해내어 줍니다.
 웹에서 자주 보곤하던 이미지를 점진적으로 그려나가는 모습도 Fresco 로 해낼 수 있습니다.
 ProgressBar, overlay 등등 많은 부분을 취향껏 그려낼 수 있습니다.
 http://fresco.recrack.com/docs/using-drawees-xml.html <- 더 많은 부분을 확인 할 수 있습니다.
