@@ -58,3 +58,10 @@ hugo:
     bio: "욕심을 줄이던지, 잠을 줄이던지"
     twitter: "kgcrom"
     github: "kgcrom"
+tony:
+    name: "박준선"
+    nickname: "Tony Park"
+    email: "tony.park@tosslab.com"
+    position: "Android"
+    bio: "코드 가꾸기 바빠 외모를 못 가꾸는 개발자..."
+    github: "tonyjs"
