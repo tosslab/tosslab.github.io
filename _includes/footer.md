@@ -1,6 +1,5 @@
 <p>
-	Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>,
-	hosted on <a href="http://pages.github.com/" target="_blank">Github Pages</a>
+	© Toss Lab, Inc. All rights reserved. Powered by <a href="http://pages.github.com/" target="_blank">GitHub Pages.</a>
 </p>
 <ul class="links">
 	<li>

@@ -55,14 +55,14 @@ table tr:nth-child(2n) {
     background-color: #F8F8F8;
 }
 ::-moz-selection {
-	background: #05836B;
-	color: #fff;
-	text-shadow:none;
+	background: #FCBB00;
+	color: #545454;
+	text-shadow: none;
 }
 ::selection {
-	background: #05836B;
-	color: #fff;
-	text-shadow:none;
+	background: #FCBB00;
+	color: #545454;
+	text-shadow: none;
 }
 
 /* Common */
