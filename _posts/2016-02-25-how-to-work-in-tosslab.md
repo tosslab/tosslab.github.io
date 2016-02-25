@@ -24,3 +24,5 @@ fullview: true
 
 <center><iframe src="//www.slideshare.net/slideshow/embed_code/key/qWNcnGoVB0BNsI" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe></center>
 
+
+<center><strong> <a href="//www.slideshare.net/ssuser70b5b8/ss-58709101" title="토스랩, 우리는 이렇게 일해요" target="_blank">슬라이드쉐어 이동하기</a></center>
