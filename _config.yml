@@ -1,39 +1,56 @@
-# https://github.com/mojombo/jekyll/wiki/Configuration for more settings
-title: JANDI tech blog
-description: 안녕하세요. 잔디 서비스를 개발중인 토스랩 식구들의 블로그입니다.
-
 # https://help.github.com/articles/using-jekyll-with-pages/#configuring-jekyll
-safe: true
-lsi: false
 
-highlighter: pygments
-permalink: pretty
-markdown: redcarpet
+# Handling Reading
+safe:         false
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
-redcarpet:
-    extensions:
-        - no_intra_emphasis
-        - fenced_code_blocks
-        - tables
-        - strikethrough
-        - superscript
-        - autolink
-        - hard_wrap
+# Filtering Content
+show_drafts: null
+limit_posts: 0
+future:      false
+unpublished: false
 
+# Plugins
+whitelist: []
 gems:
     - jemoji
+    - jekyll-paginate
 
-paginate: 5
+# Conversion
+markdown:    kramdown
+highlighter: rouge
+lsi:         false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Outputting
+#permalink:     pretty
+permalink:     date
+paginate:      5
+paginate_path: "/page:num"
+timezone:      null
+
+quiet:    false
+defaults: []
 
 author_dir: author
-
 rss_path: feed.xml
 categories_path: categories.html
 tags_path: tags.html
 
+# Markdown Processors
+rdiscount:
+  extensions: []
 
-#paginate_path: "page:num"
-#exclude: ["README.md"] # files to exclude
-#markdown: kramdown
+redcarpet:
+  extensions: []
 
-#BASE_PATH:
+kramdown:
+  input:              GFM
+  syntax_highlighter: rouge
+  auto_ids:           false
+  footnote_nr:        1
+  entity_output:      as_char
+  toc_levels:         1..6
+  smart_quotes:       lsquo,rsquo,ldquo,rdquo
