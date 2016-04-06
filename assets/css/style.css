@@ -608,8 +608,8 @@ ul.archives-posts li {
 	margin: 3rem 0;
 }
 .joinus h3 {
-	background: #696969;
-	color: #fff;
+	background: #E3E6EE;
+	color: #333;
 	padding: 8px 10px 5px;
 	margin: 2rem 0 1rem;
 }
@@ -718,9 +718,15 @@ ul.tags li a:active {
 		float: none;
 		text-align: center;
 	}
+	.container {
+		padding: 0 1.5em;
+	}
 	.site {
 		margin: 30px auto 30px;
 		text-align: left !important;
+	}
+	article {
+		padding: 1%;
 	}
 	.post__list {
 		margin: 40px 0;
