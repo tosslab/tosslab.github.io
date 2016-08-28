@@ -65,9 +65,9 @@ JANDI의 검색 기능은 Team 단위로 이루어지기 때문에 TeamId를 기
 ![SolrCloud Sharding](https://sematext.com/wp-content/uploads/2015/09/multitenancy-routing-index.png "Sharding Index")
 ![SolrCloud Routing](https://sematext.com/wp-content/uploads/2015/09/multitenancy-routing-query.png "Routing Query")
 
-4년 전 제가 마지막으로 Solr를 사용했을 때는 사용자가 직접 shards queryString에 검색할 node를 넣어주어야 했습니다
+4년 전 제가 마지막으로 Solr를 사용했을 때는 사용자가 직접 shards queryString에 검색할 node를 넣어주어야 했습니다.
 
-> .../select?q=\*:\*&shards=localhost:8983/solr/core1,localhost:8984/solr/core1     
+`.../select?q=\*:\*&shards=localhost:8983/solr/core1,localhost:8984/solr/core1`
 
 [SolrCloud Routing](https://sematext.com/blog/2015/09/29/solrcloud-large-tenants-and-routing/)
 
