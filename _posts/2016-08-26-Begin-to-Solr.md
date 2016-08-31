@@ -26,7 +26,7 @@ JANDI는 사용자가 입력한 메시지를 검색하고 사용자가 올린 �
 2. 검색엔진 도입을 통해 검색이 JANDI 서비스에 영향을 주지 않도록 한다.
   * 색인을 위해서 주기적으로 JANDI의 MongoDB 데이터를 가져 와야 했지만, 이 작업이 JANDI 서비스에 큰 부하를 주지 않을 거라고 생각했습니다. 
 
-검색엔진 후보로는 Solr, ElasticSearch, CloudSearch, ElasticSearch Searvice 가 있었는데 Solr를 선택했습니다.  
+검색엔진 후보로는 Solr, ElasticSearch, CloudSearch, ElasticSearch Service 가 있었는데 Solr를 선택했습니다.  
 왜냐하면
 
 1. 제가 경험한 검색엔진이 Solr 였습니다. 더군다나 2010년 초에 접했던 Solr 비해 많이 발전한 것 같아 개발자로서의 열정과 도전 욕구가 샘솟았습니다. 
@@ -184,7 +184,7 @@ full-import는 현재 active인 데이터를 가져올 수 있도록 query attri
 ```
 정상적으로 동작은 했지만, 색인 속도가 실제 서비스에 적용하기 힘들 정도였습니다. 실행되는 mongo query를 확인했는데 다음과 같이 동작하였습니다.
 
-![Delta Import](/assets/media/post_images/dataimport.png "DetaImport 쿼리 실행갯수")
+![Delta Import](/assets/media/post_images/dataImport.png "DetaImport 쿼리 실행갯수")
 
 특정 시간 이후에 생성된 데이터를 색인하기 위해 약 (새로 생성된 문서개수 + 1) 번의 mongo query가 실행되었습니다. (batch size와 문서 갯수에 따라 늘어날 수도 있습니다.) 
 메신저 서비스 특성상 각각의 문서 크기는 작지만 증가량이 빠르므로 위 방식으로는 운영 할 수 없었습니다. 그래서 [delta-import using full-import](https://wiki.apache.org/solr/DataImportHandlerFaq#fullimportdelta) 를 참고해서 두 번째 삽질을 시작 하였습니다.
