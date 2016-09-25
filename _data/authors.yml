@@ -53,9 +53,9 @@ steve:
 hugo:
     name: "강한구" 
     nickname: "Hugo.Kang"
-    #email: "hugo.kang@tosslab.com" 
+    email: "hugo.kang@tosslab.com"
     position: "Analytics" 
-    bio: "욕심을 줄이던지, 잠을 줄이던지"
+    bio: "욕심을 줄이든지, 잠을 줄이든지"
     twitter: "kgcrom"
     github: "kgcrom"
 tony:
