@@ -1,11 +1,4 @@
 # Author details
-justin:
-    name: "최영근"
-    nickname: "Justin"
-    email: "justin@tosslab.com"
-    position: "CTO"
-    bio: "개발자 한분한분 성심껏 모시겠습니다."
-    facebook: "choizak"
 gyu:
     name: "김봉규"
     nickname: "Gyu"
@@ -26,13 +19,6 @@ mk:
     bio: "다양한 경험을 즐기며, 같은 실수를 반복하지 않기 위해 노력합니다.<br>회사 옥상에서 맥주와 함께 캐치볼 할 수 있는 날이 오길 기대합니다."
     twitter: "akamk87"
     github: "agileup"
-kevin:
-    name: "이수환"
-    nickname: "Kevin"
-    email: "kevin@tosslab.com"
-    position: "Analytics"
-    bio: "수학을 좋아합니다."
-    facebook: "suehwan"
 john:
     name: "강준수"
     nickname: "John"
@@ -50,11 +36,12 @@ steve:
     blog: "https://medium.com/@jsuch2362"
     facebook: "steve.SU.J"
     github: "ZeroBrain"
+    isexist: 0
 hugo:
     name: "강한구" 
     nickname: "Hugo.Kang"
     email: "hugo.kang@tosslab.com"
-    position: "Analytics" 
+    position: "Back-end" 
     bio: "욕심을 줄이든지, 잠을 줄이든지"
     twitter: "kgcrom"
     github: "kgcrom"
@@ -65,3 +52,4 @@ tony:
     position: "Android"
     bio: "코드 가꾸기 바빠 외모를 못 가꾸는 개발자..."
     github: "tonyjs"
+    isexist: 0

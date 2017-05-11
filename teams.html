@@ -21,6 +21,8 @@ description: 테크 블로그를 만드는 토스랩 식구들을 소개합니�
 	<h1>팀원들 소개</h1>
 	{% for authors in site.data.authors %}
 	{% assign author = authors[1] %}
+	{% if author.isexist == 0%}
+	{% else %}
 	<div class="author">
 		{% include profile.md %}
 		<h3>
@@ -34,5 +36,6 @@ description: 테크 블로그를 만드는 토스랩 식구들을 소개합니�
 			{% include social-link.md %}
 		</p>
 	</div>
+	{% endif %}
 	{% endfor %}
 </section>
