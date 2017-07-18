@@ -53,3 +53,10 @@ tony:
     bio: "코드 가꾸기 바빠 외모를 못 가꾸는 개발자..."
     github: "tonyjs"
     isexist: 0
+ali:
+    name: "이명훈"
+    nickname: "Ali Lee"
+    email: "ali.lee@tosslab.com"
+    position: "Back-end"
+    bio: "인생 뭐있냐?"
+    github: "ali"
