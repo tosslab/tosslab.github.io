@@ -10,7 +10,7 @@ fullview: true
 이 포스팅은 총 2부로 이어지며 현재는 1부 입니다.
 
 > 1. 1부 : AWS 비용 얼마까지 줄여봤니?
-> 2. 2부 : Instance Scheduler Bot 적용기
+> 2. 2부 : AWS Instance Scheduler Bot 적용기
 
 최근들어 스타트업의 인프라는 DevOps의 유행과 함께 IDC에서 클라우드로 급속도로 이전해가고 있습니다. 많은 클라우드 업체가 있지만 그 중에서도 Amazon Web Service (AWS) 가 가장 선호되고 있고 잔디도 AWS를 이용하여 서버 인프라를 구성하고 있습니다. 하지만 AWS 비용은 예상보다 만만치 않습니다. 비용을 줄이기 위한 여러가지 방법이 있지만 잔디에서는 어떻게 비용을 줄이는지 공유하도록 하겠습니다.
 
@@ -57,7 +57,7 @@ EC2 Scheduler는 다음과 같은 문제점들이 있습니다.
 
 # Instance Scheduler
 
-EC2 Scheduler의 문제점을 보안한 Instance Scheduler를 개발하였습니다. EC2나 RDS 모두 하나의 서버를 Instance라를 부르기 때문에 Instance Scheduler라 하였습니다. Instance Scheduler는 Serverless 아키텍쳐인 Cloudwatch + Lambda를 이용하여 구성되어 있습니다.
+EC2 Scheduler의 문제점을 보안한 Instance Scheduler를 소개하겠습니다. EC2나 RDS 모두 하나의 서버를 Instance라를 부르기 때문에 Instance Scheduler라 하였습니다. Instance Scheduler는 Serverless 아키텍쳐인 Cloudwatch + Lambda를 이용하여 구성되어 있습니다.
 
 ![](/assets/media/post_images/aws_instance_scheduler.png)
 
@@ -94,7 +94,7 @@ Schedule 작동에 대한 기본 정보를 정의하고 있습니다.
 ```
 
 1. **ScheduleName**
-    * Schedule의 Unique한 이름이다.
+    * Schedule 이름 입니다.
 2. **TagValue**
     * 적용대상 Instance를 조회할때 참조하는 Tag 값입니다. Instance를 Schedule에 적용대상에 포함시키기 위해서는 해당 Instance의 Tag에 ScheduleName이라는 Key에 TagValue를 Tagging하면 됩니다.
 2. **DaysActive**
@@ -116,12 +116,12 @@ Schedule 작동에 대한 기본 정보를 정의하고 있습니다.
 ```json
 {
   "Dependency": [
-    "MONGODB",
-    "RDB",
-    "KAFKA",
-    "REDIS"
+    "GROUP1",
+    "GROUP2",
+    "GROUP3",
+    "GROUP4"
   ],
-  "GroupName": "API",
+  "GroupName": "GROUP5",
   "InstanceType": "EC2",
   "ScheduleName": "Development"
 }
@@ -129,7 +129,7 @@ Schedule 작동에 대한 기본 정보를 정의하고 있습니다.
 1. **Dependency**
     * 의존관계 Server Group 목록입니다.
 2. **GroupName**
-    * Server Group의 Unique한 이름입니다.
+    * Server Group 이름 입니다.
 3. **InstanceType**
     * `EC2`와 `RDS` 를 지원합니다.
 
@@ -160,7 +160,7 @@ Schedule 작동에 대한 기본 정보를 정의하고 있습니다.
 
 ## Lambda
 
-Instance Scheduler의 Lambda 코드는 Python으로 개발되었으며 [Github](https://github.com/tosslab/instance_scheduler)에 오픈소스로 공개하였습니다.
+Instance Scheduler의 Lambda 코드는 Python으로 개발되었으며 [Github](https://github.com/tosslab/aws_instance_scheduler)에 오픈소스로 공개하였습니다.
 boto3는 배포 package에 Dependency를 추가하지 않아도 Lambda 실행환경에서 가용 라이브러리로 사용할 수 있다. 하지만 현재 기본적으로 사용할 수 있는 boto3 버전에서는 RDS Instance를 stop 할 수 있는 함수가 없기 때문에 최신버전이 필요합니다. 따라서 boto3 버전을 변경하여 함께 packaging 하여 업로드 하여야한다. 배포는 Lambda 관리도구인 [Apex](https://github.com/apex/apex)를 이용합니다. Apex를 이용하면 Dependency package 및 Lambda 생성 및 업데이트, 환경변수 설정 등을 모두 한번에 할 수 있습니다.
 
 > 참조 : [Lambda Execution Environment and Available Libraries](http://docs.aws.amazon.com/ko_kr/lambda/latest/dg/current-supported-versions.html)
@@ -177,7 +177,7 @@ Jandi의 토픽에서 Incoming Webhook을 연결하고 Webhook URL을 복사합�
 
 ![](/assets/media/post_images/incoming_webhook.png)
 
-배포된 Lambda 함수의 Code 탭에서 Environment variables 에 WEBHOOK_URL을 등록합니다.
+배포된 Lambda 함수의 Code 탭에서 Environment variables 에 WEBHOOK_URL을 설정하거나 function.json에서 변경후 재배포 하여도 됩니다.
 
 ![](/assets/media/post_images/lambda.png)
 
@@ -200,8 +200,8 @@ Instance Scheduler 는 EC2 Scheduler 에 비해서 다음과 같은 기능이 �
 3. 스케쥴의 예외 설정
 4. RDS 스케쥴 추가
 5. 스케쥴에 상관없이 강제 시작 및 중지
-6. 상태 알람
+6. 메신저로 상태 알람
 
-Lambda와 Dynamo DB의 사용 요금이 추가되었지만 Instance를 미사용시 stop 시켜 비용을 줄일수 있었습니다. Lambda와 Dynamo DB의 사용요금은 월 만원도 넘지 않는 금액이고 스케쥴에 의해 아껴지는 Instance 비용은 년 천단위 절감할것으로 예상하고 있습니다.
+EC2 Scheduler에 비해 아쉬운 부분이나 예외사항에 대해서 좀더 유동적으로 대응할 수 있도록 개선하였습니다.
 
-다음장에는 스케쥴 컨트롤을 위한 Bot 적용기를 다음장에서 소개하도록 하겠습니다.
+다음장에는 스케쥴을 컨트롤을 위한 Bot 적용기를 소개하도록 하겠습니다.
