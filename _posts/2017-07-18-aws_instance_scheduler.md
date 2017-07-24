@@ -9,8 +9,8 @@ fullview: true
 
 이 포스팅은 총 2부로 이어지며 현재는 1부 입니다.
 
-> 1. 1부 : AWS 비용 얼마까지 줄여봤니?
-> 2. 2부 : AWS Instance Scheduler Bot 적용기
+> 1. [1부 : AWS 비용 얼마까지 줄여봤니?](/backend/2017/07/18/aws_instance_scheduler.html)
+> 2. [2부 : AWS Instance Scheduler Bot 적용기](/backend/2017/07/19/aws_instance_scheduler_bot.html)
 
 최근들어 스타트업의 인프라는 DevOps의 유행과 함께 IDC에서 클라우드로 급속도로 이전해가고 있습니다. 많은 클라우드 업체가 있지만 그 중에서도 Amazon Web Service (AWS) 가 가장 선호되고 있고 잔디도 AWS를 이용하여 서버 인프라를 구성하고 있습니다. 하지만 AWS 비용은 예상보다 만만치 않습니다. 잔디에서는 비용을 줄이기 위해 여러가지 노력을 하고 있는데 이 글에서는 스케쥴링 기능을 이용하여 비용을 줄이는 방법에 대해 공유하도록 하겠습니다.
 

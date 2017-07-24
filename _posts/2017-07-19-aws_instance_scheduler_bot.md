@@ -3,14 +3,14 @@ layout: post
 title: "AWS Instance Scheduler Bot 적용기"
 author: ali
 categories: [backend]
-tags: [aws, lambda, ec2, rds, boto]
+tags: [aws, webhook, bot]
 fullview: true
 ---
 
 이 포스팅은 총 2부로 이어지며 현재는 2부 입니다.
 
-> 1. 1부 : AWS 비용 얼마까지 줄여봤니?
-> 2. 2부 : AWS Instance Scheduler Bot 적용기
+> 1. [1부 : AWS 비용 얼마까지 줄여봤니?](/backend/2017/07/18/aws_instance_scheduler.html)
+> 2. [2부 : AWS Instance Scheduler Bot 적용기](/backend/2017/07/19/aws_instance_scheduler_bot.html)
 
 1부에서 AWS 비용을 절감하기 위한 Instance Scheduler에 대한 소개를 하였습니다. 2부에서는 Instance Scheduler의 설정을 손쉽게 변경하기 위한 Bot을 적용한 사례에 대해서 소개합니다.
 
@@ -20,7 +20,7 @@ Instance Scheduler의 설정을 변경하기 위해서는 정보를 담고 있�
 
 # Outgoing Webhook
 
-Jandi에서는 Incoming Webhook과 반대되는 개념으로 Outgoing Webhook을 제공합니다. 특정 키워드로 시작하는 메시지가 있을 경우 내용을 설정된 URL Endpoint에 POST로 Webhook을 보내줍니다. Webhook을 수신한 곳에서는 일련의 처리 후 메시지 데이터 형식을 맞춰 응답하게 되면 채팅창에 메시지를 표시하게 됩니다. 이를 통해 다른 외부 시스템과 연동할 수 있습니다.
+JANDI에서는 Incoming Webhook과 반대되는 개념으로 Outgoing Webhook을 제공합니다. 특정 키워드로 시작하는 메시지가 있을 경우 내용을 설정된 URL Endpoint에 POST로 Webhook을 보내줍니다. Webhook을 수신한 곳에서는 일련의 처리 후 메시지 데이터 형식을 맞춰 응답하게 되면 채팅창에 메시지를 표시하게 됩니다. 이를 통해 다른 외부 시스템과 연동할 수 있습니다.
 
 ## POST Data
 
@@ -42,7 +42,7 @@ token을 이용하여 요청의 유효성 체크를 할 수 있고 text를 적�
 
 ## Response
 
-POST Data를 적절히 처리 후 결과를 채팅창에 응답 메시지를 표시하고 싶다면 아래와 같은 Json Data를 Response body에 넣어주면 됩니다.
+POST Data를 적절히 처리 후 결과를 채팅창에 응답 메시지를 표시하고 싶다면 아래와 같은 JSON Data를 Response body에 넣어주면 됩니다.
 
 ```json
 {
@@ -70,7 +70,7 @@ Schedule Bot은 Instance Scheduler의 Lambda 함수에 함께 포함되어 작�
 ![](/assets/media/post_images/scheduler_bot.png)
 
 API Gateway와 Lambda 함수를 연결하여 Endpoint URL을 생성하고 Outgoing Webhook URL로 설정하여 Webhook으로 Lambda 함수가 실행될 수 있도록 하였습니다.
-Lambda함수는 Cloudwatch를 통해서 실행되면 Scheduler가 작동되고 Api Gateway를 통해 실행되면 Schedule Bot이 작동됩니다.
+Lambda함수는 Cloudwatch를 통해서 실행되면 Scheduler가 작동되고 API Gateway를 통해 실행되면 Schedule Bot이 작동됩니다.
 
 ## Schedule Bot 명령어
 
