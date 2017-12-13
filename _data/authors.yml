@@ -45,6 +45,7 @@ hugo:
     bio: "욕심을 줄이든지, 잠을 줄이든지"
     twitter: "kgcrom"
     github: "kgcrom"
+    isexist: 0
 tony:
     name: "박준선"
     nickname: "Tony Park"
