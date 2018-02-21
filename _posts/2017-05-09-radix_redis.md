@@ -122,9 +122,9 @@ typedef struct raxNode {
 위 그림을 예로 32 bit 정보가 어떤걸 의미하는지 알아보겠습니다.
 
 iskey는 노드가 key의 종착역(iskey:1)인지 중간역(iskey:0)인지 나타내는 flag입니다. 
-1, 3 노드의 iskey:0 이고 2, 4, 5, 6, 7 노드의 iskey:1이 되겠네요.
+1, 3 노드는 iskey:0 이고 2, 4, 5, 6, 7 노드는 iskey:1이 됩니다.
 
-isnull은 value의 null 여부를 표시합니다. unsigned char data[]에 key/value, 자식 노드의 포인터를 저장하므로 value를 찾으려면 복잡한 계산이 들어갑니다. 불필요한 연산을 줄이기 위해 만든 필드 같네요.
+isnull은 value의 null 여부를 표시합니다. unsigned char data[]에 key/value 그리고 자식 노드의 포인터를 저장하므로 value를 찾으려면 계산이 들어갑니다. 불필요한 연산을 줄이기 위해 만든 필드 같습니다.
 
 Trie는 각 노드에 한글자씩 표현 하지만 Radix는 압축을 통해 한 노드에 여러 글자 표현이 가능합니다.
 이를 나태내는 플래그 iscompr 입니다. 노드가 압축된 노드(iscompr:1)인지 아닌지(iscompr:0)를 나타냅니다.
