@@ -5,6 +5,7 @@ author: steve
 categories: [android]
 description: Gradle 의 의존성 처리 부분을 좀 더 나눠서 관리하는 방법입니다.
 tags: [gradle, android, dependency]
+published: false
 fullview: true
 ---
 
