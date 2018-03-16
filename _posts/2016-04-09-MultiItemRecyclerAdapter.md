@@ -6,6 +6,7 @@ description: 1년 반 정도 사용해온 MultiItemAdapter 를 소개합니다.
 author: tony
 categories: [android]
 tags: [android, list, recyclerview, multi]
+published: false
 fullview: true
 ---
 
